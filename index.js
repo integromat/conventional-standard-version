@@ -73,7 +73,7 @@ module.exports = async function standardVersion (argv) {
     await changelog(args, newVersion)
     await commit(args, newVersion)
     await tag(newVersion, pkg ? pkg.private : false, args)
-    return newVersion;
+    return newVersion
   } catch (err) {
     printError(args, err.message)
     throw err
