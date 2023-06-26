@@ -7,6 +7,7 @@ const fs = require('fs')
 const { Readable } = require('stream')
 const mockery = require('mockery')
 const stdMocks = require('std-mocks')
+const ci = require('ci-info')
 
 require('chai').should()
 
@@ -82,6 +83,10 @@ describe('git', function () {
     shell.mkdir('tmp')
     shell.cd('tmp')
     shell.exec('git init')
+    if (ci.isCI) {
+      shell.exec('git config user.email "you@example.com"')
+      shell.exec('git config user.name "John Doe"')
+    }
     shell.exec('git config commit.gpgSign false')
     shell.exec('git config core.autocrlf false')
     shell.exec('git commit --allow-empty -m"root-commit"')

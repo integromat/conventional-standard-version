@@ -2,6 +2,7 @@
 
 const shell = require('shelljs')
 const fs = require('fs')
+const ci = require('ci-info')
 
 require('chai').should()
 
@@ -19,6 +20,10 @@ describe('presets', () => {
     shell.mkdir('tmp')
     shell.cd('tmp')
     shell.exec('git init')
+    if (ci.isCI) {
+      shell.exec('git config user.email "you@example.com"')
+      shell.exec('git config user.name "John Doe"')
+    }
     shell.exec('git config commit.gpgSign false')
     shell.exec('git config core.autocrlf false')
     shell.exec('git commit --allow-empty -m "initial commit"')
