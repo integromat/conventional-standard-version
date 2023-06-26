@@ -1,0 +1,29 @@
+version: 2.1
+
+defaults: &defaults
+    working_directory: /workspace/conventional-commits
+    docker:
+        - image: integromat/circleci-docker
+
+jobs:
+    test:
+        <<: *defaults
+        resource_class: small
+        steps:
+            - checkout
+            - run:
+                    name: Authenticate with npm registry
+                    command: npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+            - run:
+                  name: npm install
+                  command: npm ci
+            - run:
+                  name: test
+                  command: npm run test
+
+workflows:
+    version: 2
+    build:
+        jobs:
+            - test:
+                  context: org-default
