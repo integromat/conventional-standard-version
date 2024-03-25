@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/integromat/conventional-standard-version#readme",
   "dependencies": {
-    "chalk": "^4.1.2",
+    "chalk": "^5.3.0",
     "conventional-changelog": "3.1.25",
     "conventional-changelog-config-spec": "2.1.0",
     "conventional-changelog-conventionalcommits": "6.1.0",
