@@ -544,7 +544,7 @@ describe('standard-version', function () {
         packageFiles: [{ filename: 'Chart.yaml', type: 'yaml' }],
         bumpFiles: [{ filename: 'Chart.yaml', type: 'yaml' }]
       })
-      const parsed = yaml.load(fs.readFileSync('Chart.yam', 'utf-8'))
+      const parsed = yaml.load(fs.readFileSync('Chart.yaml', 'utf-8'))
       parsed.version.should.equal('0.4.0')
       parsed.appVersion.equal('0.4.0')
     })
