@@ -539,15 +539,15 @@ describe('standard-version', function () {
             './test/mocks/Chart.yaml'
           )
         }
-      });
+      })
       await exec({
         packageFiles: [{ filename: 'Chart.yaml', type: 'yaml' }],
         bumpFiles: [{ filename: 'Chart.yaml', type: 'yaml' }]
-      });
-      const parsed = yaml.load(fs.readFileSync('Chart.yaml', 'utf-8'));
-      parsed.version.should.equal('0.4.0');
-      parsed.appVersion.should.equal('0.4.0');
-    });
+      })
+      const parsed = yaml.load(fs.readFileSync('Chart.yaml', 'utf-8'))
+      parsed.version.should.equal('0.4.0')
+      parsed.appVersion.should.equal('0.4.0')
+    })
 
     it('reads and writes to a simple yaml file', async function () {
       mock({
@@ -557,14 +557,14 @@ describe('standard-version', function () {
             './test/mocks/simple.yaml'
           )
         }
-      });
+      })
       await exec({
         packageFiles: [{ filename: 'simple.yaml', type: 'yaml' }],
         bumpFiles: [{ filename: 'simple.yaml', type: 'yaml' }]
       })
-      const parsed = yaml.load(fs.readFileSync('simple.yaml', 'utf-8'));
+      const parsed = yaml.load(fs.readFileSync('simple.yaml', 'utf-8'))
       parsed.version.should.equal('0.4.0');
-      (typeof parsed.appVersion).should.equal('undefined');
+      (typeof parsed.appVersion).should.equal('undefined')
     })
   }
   )
