@@ -1,6 +1,6 @@
 {
   "name": "@integromat/standard-version",
-  "version": "9.5.1",
+  "version": "9.6.0",
   "description": "replacement for `npm version` with automatic CHANGELOG generation",
   "bin": "bin/cli.js",
   "scripts": {
@@ -8,8 +8,7 @@
     "posttest": "eslint .",
     "test": "nyc mocha --timeout=30000",
     "test:unit": "mocha --exclude test/git.spec.js",
-    "coverage": "nyc report --reporter=lcov",
-    "release": "bin/cli.js"
+    "coverage": "nyc report --reporter=lcov"
   },
   "nyc": {
     "exclude": [
